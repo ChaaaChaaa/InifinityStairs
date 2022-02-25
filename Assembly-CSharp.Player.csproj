@@ -52,21 +52,21 @@
     <ImplicitlyExpandDesignTimeFacades>false</ImplicitlyExpandDesignTimeFacades>
   </PropertyGroup>
   <ItemGroup>
-     <Compile Include="Assets\Scripts\CameraController.cs" />
-     <Compile Include="Assets\Scripts\GameManager.cs" />
-     <Compile Include="Assets\Scripts\PlayerController.cs" />
      <Compile Include="Assets\Suriyun\Yappy kawaii 2\Scripts\Swapper5.cs" />
-     <Compile Include="Assets\Suriyun\Yappy kawaii 2\Scripts\Swapper2.cs" />
-     <Compile Include="Assets\Suriyun\Yappy kawaii 2\Scripts\Swapper6.cs" />
+     <Compile Include="Assets\Suriyun\Yappy kawaii 2\Scripts\Swapper3.cs" />
+     <Compile Include="Assets\Suriyun\Yappy kawaii 2\Scripts\Swapper9.cs" />
+     <Compile Include="Assets\Scripts\CameraController.cs" />
+     <Compile Include="Assets\Suriyun\Yappy kawaii 2\Scripts\Swapper4.cs" />
      <Compile Include="Assets\Suriyun\Yappy kawaii 2\Scripts\Camera Scripts\MouseOrbitImproved.cs" />
      <Compile Include="Assets\Suriyun\Yappy kawaii 2\Scripts\AnimatorController.cs" />
-     <Compile Include="Assets\Suriyun\Yappy kawaii 2\Scripts\Swapper9.cs" />
-     <Compile Include="Assets\Suriyun\Yappy kawaii 2\Scripts\Swapper3.cs" />
-     <Compile Include="Assets\Suriyun\Yappy kawaii 2\Scripts\Swapper4.cs" />
-     <Compile Include="Assets\Suriyun\Yappy kawaii 2\Scripts\Swapper7.cs" />
      <Compile Include="Assets\Suriyun\Yappy kawaii 2\Scripts\Swapper8.cs" />
-     <Compile Include="Assets\Suriyun\Yappy kawaii 2\Scripts\Swapper1.cs" />
+     <Compile Include="Assets\Suriyun\Yappy kawaii 2\Scripts\Swapper6.cs" />
+     <Compile Include="Assets\Suriyun\Yappy kawaii 2\Scripts\Swapper7.cs" />
      <Compile Include="Assets\Suriyun\Yappy kawaii 2\Scripts\ExampleSwapMaterials.cs" />
+     <Compile Include="Assets\Suriyun\Yappy kawaii 2\Scripts\Swapper2.cs" />
+     <Compile Include="Assets\Scripts\GameManager.cs" />
+     <Compile Include="Assets\Suriyun\Yappy kawaii 2\Scripts\Swapper1.cs" />
+     <Compile Include="Assets\Scripts\PlayerController.cs" />
      <None Include="Assets\Suriyun\Yappy kawaii 2\UnityChanShader\Shader\Unitychan_chara_fuku.shader" />
      <None Include="Assets\Suriyun\Yappy kawaii 2\UnityChanShader\Shader\Unitychan_chara_akarami_blend.shader" />
      <None Include="Assets\Suriyun\Yappy kawaii 2\UnityChanShader\Shader\CharaOutline.cginc" />

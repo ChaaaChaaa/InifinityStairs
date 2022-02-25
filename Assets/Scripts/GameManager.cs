@@ -18,7 +18,7 @@ public class GameManager : MonoBehaviour
     private List<int> platformPositionCheckList = new List<int>();
 
     public bool gameStart = false;
-    
+
     private int posIndex = 0;
     private int characterPositionIndex = 0;
 
@@ -31,8 +31,7 @@ public class GameManager : MonoBehaviour
     public int score;
 
     public PlayerController playerController;
-    
-    
+
     void Start()
     {
         DataLoad();
@@ -47,7 +46,8 @@ public class GameManager : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.RightArrow))
             {
                 CheckPlatform(characterPositionIndex, RIGHT_POSITION);
-            }else if (Input.GetKeyDown(KeyCode.LeftArrow))
+            }
+            else if (Input.GetKeyDown(KeyCode.LeftArrow))
             {
                 CheckPlatform(characterPositionIndex, LEFT_POSITION);
             }
@@ -72,7 +72,6 @@ public class GameManager : MonoBehaviour
             {
                 playerController.Die();
             }
-
         }
     }
 
@@ -93,7 +92,7 @@ public class GameManager : MonoBehaviour
     public void Init() //캐릭터, 발판 위치 초기화
     {
         character.transform.position = new Vector3(0f, -0.275f, 0);
-        
+
         for (posIndex = 0; posIndex < 20;)
         {
             //Next_Platform(posIndex);
@@ -107,15 +106,15 @@ public class GameManager : MonoBehaviour
 
         score = 0;
         scoreResultText.text = score.ToString();
-        playerController.animator.SetBool("Die",false);
-        
+        //playerController.animator.Play("Walk",0,1000);
+        playerController.InitPlayer();
         gameStart = true;
     }
 
     public void NextPlatform(int idx)
     {
         int pos = Random.Range(0, 2);
-    
+
         if (idx == 0)
         {
             // 첫번째 발판의 경우 
@@ -128,16 +127,16 @@ public class GameManager : MonoBehaviour
                 if (pos == 0)
                 {
                     // 왼쪽 발판일 경우 
-                    platformPositionCheckList[idx-1] = pos; //else일때 최소 1부터 이므로 첫번째 원소부터 넣기 위해 -1을 함
+                    platformPositionCheckList[idx - 1] = pos; //else일때 최소 1부터 이므로 첫번째 원소부터 넣기 위해 -1을 함
                     platformList[idx].transform.position =
-                        platformList[idx-1].transform.position + new Vector3(-1f, 0.5f, 0);
+                        platformList[idx - 1].transform.position + new Vector3(-1f, 0.5f, 0);
                 }
                 else
                 {
                     // 오른쪽 발판일 경우 
-                    platformPositionCheckList[idx-1] = pos;
+                    platformPositionCheckList[idx - 1] = pos;
                     platformList[idx].transform.position =
-                        platformList[idx-1].transform.position + new Vector3(1f, 0.5f, 0);
+                        platformList[idx - 1].transform.position + new Vector3(1f, 0.5f, 0);
                 }
             }
             else
@@ -146,16 +145,16 @@ public class GameManager : MonoBehaviour
                 {
                     if (posIndex % 20 == START_INDEX) // object pulling
                     {
-                        platformPositionCheckList[20-1] = pos; //else일때 최소 1부터 이므로 첫번째 원소부터 넣기 위해 -1을 함
-                        platformList[idx%20].transform.position =
+                        platformPositionCheckList[20 - 1] = pos; //else일때 최소 1부터 이므로 첫번째 원소부터 넣기 위해 -1을 함
+                        platformList[idx % 20].transform.position =
                             platformList[20 - 1].transform.position + new Vector3(-1f, 0.5f, 0);
                     }
 
                     else
                     {
-                        platformPositionCheckList[idx%20-1] = pos;
-                        platformList[idx%20].transform.position =
-                            platformList[idx%20 - 1].transform.position + new Vector3(-1f, 0.5f, 0);
+                        platformPositionCheckList[idx % 20 - 1] = pos;
+                        platformList[idx % 20].transform.position =
+                            platformList[idx % 20 - 1].transform.position + new Vector3(-1f, 0.5f, 0);
                     }
                 }
                 else
@@ -163,16 +162,16 @@ public class GameManager : MonoBehaviour
                     // 오른쪽 발판일 경우 
                     if (posIndex % 20 == 0)
                     {
-                        platformPositionCheckList[20-1] = pos; //else일때 최소 1부터 이므로 첫번째 원소부터 넣기 위해 -1을 함
-                        platformList[idx%20].transform.position =
+                        platformPositionCheckList[20 - 1] = pos; //else일때 최소 1부터 이므로 첫번째 원소부터 넣기 위해 -1을 함
+                        platformList[idx % 20].transform.position =
                             platformList[20 - 1].transform.position + new Vector3(1f, 0.5f, 0);
                     }
 
                     else
                     {
-                        platformPositionCheckList[idx%20-1] = pos; //else일때 최소 1부터 이므로 첫번째 원소부터 넣기 위해 -1을 함
-                        platformList[idx%20].transform.position =
-                            platformList[idx%20 - 1].transform.position + new Vector3(1f, 0.5f, 0);
+                        platformPositionCheckList[idx % 20 - 1] = pos; //else일때 최소 1부터 이므로 첫번째 원소부터 넣기 위해 -1을 함
+                        platformList[idx % 20].transform.position =
+                            platformList[idx % 20 - 1].transform.position + new Vector3(1f, 0.5f, 0);
                     }
                 }
             }
@@ -185,14 +184,14 @@ public class GameManager : MonoBehaviour
 
     void CheckPlatform(int currentIndex, int direction)
     {
-        Debug.Log("currentIndex :"+currentIndex%20+" /Platform : "+platformPositionCheckList[currentIndex%20]+" /Direction : "+direction);
-        if (platformPositionCheckList[currentIndex%20] == direction) //캐릭터 이동 방향에 발판이 있음
+        //Debug.Log("currentIndex :"+currentIndex%20+" /Platform : "+platformPositionCheckList[currentIndex%20]+" /Direction : "+direction);
+        if (platformPositionCheckList[currentIndex % 20] == direction) //캐릭터 이동 방향에 발판이 있음
         {
             characterPositionIndex++;
             //캐릭터의 위치를 성공한 발판 위에 올린다.
             character.transform.position =
-                platformList[characterPositionIndex%20].transform.position + new Vector3(0f, 0.2f, 0);
-            
+                platformList[characterPositionIndex % 20].transform.position + new Vector3(0f, 0.2f, 0);
+
             NextPlatform(posIndex);
         }
         else
@@ -203,12 +202,7 @@ public class GameManager : MonoBehaviour
 
     public void result()
     {
-        //Debug.Log("Game Over"+playerController.animator.GetBool("Die"));
-        //playerController.Die();
-        playerController.animator.SetBool("Die",true);
-        //playerController.animator.SetTrigger("Die");
-        //Debug.Log("Game Over2"+playerController.animator.GetBool("Die"));
-        //playerController.animator.Play("Die2",-1,0);
+        playerController.Die();
         gameStart = false;
     }
 }
